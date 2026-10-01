@@ -50,9 +50,7 @@ let config = {
     saveConfig: false
 };
 
-// ==========================================
-// Theme Logic
-// ==========================================
+// Theme Management
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('speedTestTheme', theme);
@@ -66,7 +64,6 @@ function initTheme() {
     if (savedTheme) {
         applyTheme(savedTheme);
     } else {
-        // Fall back to system preference
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         applyTheme(prefersDark ? 'dark' : 'light');
     }
@@ -78,9 +75,7 @@ themeToggleBtn.addEventListener('click', () => {
     applyTheme(nextTheme);
 });
 
-// ==========================================
-// Moving Average Helper
-// ==========================================
+// Moving Average Calculator
 class SpeedTracker {
     constructor(sampleSize = 10) {
         this.samples = [];
@@ -179,7 +174,7 @@ async function fetchNetworkDetails() {
             clientIpEl.textContent = data.ip || 'Unknown IP';
             clientInfoEl.textContent = `${data.city || 'Unknown City'}, ${data.country || 'Unknown'}`;
         } else {
-            throw new Error('APIs failed');
+            throw new Error('Network lookup APIs failed');
         }
     } catch (error) {
         clientIpEl.textContent = 'Unavailable';
@@ -325,7 +320,7 @@ async function runSpeedTest() {
                     cache: 'no-store'
                 });
 
-                if (!response.ok) throw new Error('Download failed');
+                if (!response.ok) throw new Error('Download request failed');
                 const reader = response.body.getReader();
                 
                 while (true) {
