@@ -1,13 +1,10 @@
-/* =========================================
-   Global Resets & Color Variables
-   ========================================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Light Theme Variables (Default) */
+/* Light Theme Variables */
 :root {
     --bg-main: #ffffff;
     --bg-surface: #f8fafc;
@@ -47,12 +44,10 @@ body {
     justify-content: center;
     padding: 20px;
     transition: background-color 0.25s ease, color 0.25s ease;
-    position: relative; /* Allows absolute positioning relative to body */
+    position: relative;
 }
 
-/* =========================================
-   Theme Toggle (Top Right)
-   ========================================= */
+/* Theme Toggle Button (Top Right) */
 .theme-btn-top {
     position: absolute;
     top: 1.5rem;
@@ -84,17 +79,13 @@ body {
     height: 1.1rem;
 }
 
-/* Theme Icon Visibility Switching */
 :root .theme-icon-sun { display: none; }
 :root .theme-icon-moon { display: inline-block; }
 
 [data-theme="dark"] .theme-icon-sun { display: inline-block; }
 [data-theme="dark"] .theme-icon-moon { display: none; }
 
-
-/* =========================================
-   Layout & Typography
-   ========================================= */
+/* Main Container & Brand */
 .app-container {
     width: 100%;
     max-width: 900px;
@@ -102,6 +93,18 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+}
+
+.brand-logo {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 1.25rem;
+    filter: drop-shadow(0 4px 12px rgba(34, 197, 94, 0.25));
+    transition: transform 0.2s ease;
+}
+
+.brand-logo:hover {
+    transform: scale(1.06);
 }
 
 .main-title {
@@ -119,9 +122,7 @@ body {
     }
 }
 
-/* =========================================
-   Main Speed Showcase
-   ========================================= */
+/* Speed Display */
 .speed-showcase {
     display: flex;
     align-items: flex-end;
@@ -157,7 +158,6 @@ body {
     .speed-unit { font-size: 4rem; }
 }
 
-/* Refresh / Start Button */
 .refresh-btn {
     width: 64px;
     height: 64px;
@@ -205,9 +205,7 @@ body {
     .refresh-btn { right: 6rem; }
 }
 
-/* =========================================
-   Advanced Metrics Grid
-   ========================================= */
+/* Secondary Metrics */
 .advanced-metrics {
     width: 100%;
     transition: opacity 0.3s ease;
@@ -268,7 +266,6 @@ body {
 
 .mt-auto { margin-top: 1rem; }
 
-/* Client / Server Info */
 .client-server-info {
     width: 100%;
     font-size: 0.875rem;
@@ -291,9 +288,7 @@ body {
     .info-group { margin-bottom: 0; }
 }
 
-/* =========================================
-   Bottom Status Bar
-   ========================================= */
+/* Status Bar & Controls */
 .status-bar {
     width: 100%;
     background-color: var(--bg-surface);
@@ -353,9 +348,7 @@ body {
     color: var(--text-secondary);
 }
 
-/* =========================================
-   Settings Panel
-   ========================================= */
+/* Settings Modal */
 .settings-panel {
     width: 100%;
     margin-top: 1rem;
@@ -482,9 +475,7 @@ body {
     border-color: var(--accent-green-hover);
 }
 
-/* =========================================
-   Utility Classes & Animations
-   ========================================= */
+/* Animations */
 .hidden {
     display: none !important;
 }
