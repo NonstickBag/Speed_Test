@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Background subtle gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1d24" />
+      <stop offset="100%" stop-color="#0f1115" />
+    </linearGradient>
+
+    <!-- Speed glow gradient -->
+    <linearGradient id="glowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#15803d" />
+      <stop offset="50%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#86efac" />
+    </linearGradient>
+
+    <!-- Filter for subtle outer glow -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Rounded App Tile -->
+  <rect width="100" height="100" rx="22" fill="url(#bgGrad)" />
+
+  <!-- Outer Gauge Ring (Unfilled Track) -->
+  <path d="M 24 74 A 36 36 0 1 1 76 74" 
+        fill="none" 
+        stroke="#272b35" 
+        stroke-width="7" 
+        stroke-linecap="round" />
+
+  <!-- Active Speed Arc (High Speed Progress) -->
+  <path d="M 24 74 A 36 36 0 1 1 68 28" 
+        fill="none" 
+        stroke="url(#glowGrad)" 
+        stroke-width="7" 
+        stroke-linecap="round"
+        filter="url(#neonGlow)" />
+
+  <!-- Speed Tick Dots -->
+  <circle cx="27" cy="62" r="1.5" fill="#475569" />
+  <circle cx="28" cy="40" r="1.5" fill="#475569" />
+  <circle cx="50" cy="22" r="1.5" fill="#86efac" />
+
+  <!-- Dynamic Center Lightning / Needle Indicator -->
+  <polygon points="50,42 56,47 51,55 58,55 42,70 45,59 40,59" 
+           fill="#22c55e" 
+           filter="url(#neonGlow)" />
+
+  <!-- Center Hub Pin -->
+  <circle cx="50" cy="54" r="3" fill="#ffffff" />
+</svg>
